@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jadu Nandini — AI & ML Student Portfolio" />
+  <meta name="keywords" content="AI, ML, student, portfolio, machine learning, artificial intelligence" />
+  <meta name="author" content="Jadu Nandini" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Jadu Nandini | AI & ML Student Portfolio" />
+  <meta property="og:description" content="AI & ML Student Portfolio showcasing projects and skills in artificial intelligence and machine learning." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jadunandini.dev" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Jadu Nandini | AI & ML Student Portfolio" />
+  <meta name="twitter:description" content="AI & ML Student Portfolio showcasing projects and skills in artificial intelligence and machine learning." />
+  <title>Jadu Nandini | AI & ML Student Portfolio</title>
+  <link rel="canonical" href="https://jadunandini.dev" />
+ 
+  <!-- Skip link & focus styles for accessibility -->
+  <style>
+    /* ─── Design Tokens ─────────────────────────────── */
+    :root {
+      --bg:          #0a0a0f;
+      --surface:     #13131a;
+      --surface2:    #1c1c27;
+      --border:      #2a2a3d;
+      --accent:      #c8ff3e;
+      --accent2:     #7c6fff;
+      --text:        #e8e8f0;
+      --muted:       #7a7a9a;
+      --danger:      #ff5e5e;
+      --font-head:   'DM Serif Display', Georgia, serif;
+      --font-body:   'DM Mono', 'Courier New', monospace;
+      --radius:      4px;
+      --transition:  0.22s cubic-bezier(0.4,0,0.2,1);
+    }
+ 
+    /* ─── Skip-to-content ───────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      z-index: 9999;
+      padding: 0.6rem 1.2rem;
+      background: var(--accent);
+      color: #000;
+      font-family: var(--font-body);
+      font-weight: 700;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: top var(--transition);
+    }
+    .skip-link:focus { top: 1rem; }
+ 
+    /* ─── Reset ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { opacity: 0.8; }
+ 
+    /* ─── Focus-visible ring ────────────────────────── */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: var(--radius);
+    }
+ 
+    /* ─── Google Fonts (loaded inline so file is standalone) */
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Serif+Display:ital@0;1&display=swap');
+ 
+    /* ─── Layout Helpers ────────────────────────────── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+ 
+    /* ─── Header / Nav ──────────────────────────────── */
+    header[role="banner"] {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      max-width: 1120px; margin: 0 auto;
+    }
+    .nav-logo {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--accent); }
+    nav[aria-label="Primary navigation"] ul {
+      list-style: none;
+      display: flex; gap: 0.25rem;
+      flex-wrap: wrap;
+    }
+    nav[aria-label="Primary navigation"] a {
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: var(--radius);
+      transition: color var(--transition), background var(--transition);
+    }
+    nav[aria-label="Primary navigation"] a:hover,
+    nav[aria-label="Primary navigation"] a[aria-current="page"] {
+      color: var(--accent);
+      background: rgba(200,255,62,0.07);
+    }
+ 
+    /* ─── Hero ──────────────────────────────────────── */
+    #home {
+      min-height: 92vh;
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 5rem 1.5rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    #home::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(124,111,255,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 30% 70%, rgba(200,255,62,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 2rem; height: 1px; background: var(--accent);
+    }
+    h1 {
+      font-family: var(--font-head);
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 1.0;
+      letter-spacing: -2px;
+      color: var(--text);
+      max-width: 14ch;
+      margin-bottom: 1.5rem;
+    }
+    h1 em { color: var(--accent); font-style: italic; }
+    .hero-desc {
+      max-width: 52ch;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+ 
+    /* ─── Buttons ────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.75rem 1.6rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase;
+      border-radius: var(--radius);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all var(--transition);
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background: var(--accent); color: #000; font-weight: 700;
+    }
+    .btn-primary:hover { background: #d9ff5a; color: #000; opacity: 1; }
+    .btn-outline {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); opacity: 1; }
+ 
+    /* ─── Section shared ────────────────────────────── */
+    section { padding: 6rem 0; }
+    section + section { border-top: 1px solid var(--border); }
+    .section-label {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
+    }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    h2 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: -1px;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .section-intro { color: var(--muted); max-width: 56ch; margin-bottom: 3.5rem; }
+ 
+    /* ─── About ─────────────────────────────────────── */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-avatar {
+      width: 100%; aspect-ratio: 4/5;
+      background: var(--surface2);
+      border-radius: 2px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 5rem;
+      color: var(--accent2); overflow: hidden;
+      position: relative;
+    }
+    .about-avatar::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(124,111,255,0.15) 0%, transparent 60%);
+    }
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem; margin-top: 2rem;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+    }
+    .stat-number {
+      font-family: var(--font-head); font-size: 2.2rem;
+      color: var(--accent); line-height: 1;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+ 
+    /* ─── Skills ────────────────────────────────────── */
+    #skills .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .skill-card:hover { border-color: var(--accent2); transform: translateY(-2px); }
+    .skill-icon {
+      width: 2.5rem; height: 2.5rem;
+      background: var(--surface2);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 1rem;
+    }
+    h3 { font-family: var(--font-head); font-size: 1.15rem; color: var(--text); margin-bottom: 0.5rem; }
+    .skill-desc { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.2rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag {
+      font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      background: var(--surface2); border: 1px solid var(--border);
+      color: var(--muted); border-radius: var(--radius);
+    }
+ 
+    /* ─── Projects ──────────────────────────────────── */
+    #projects .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+    article.project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color var(--transition);
+    }
+    article.project-card:hover { border-color: var(--accent); }
+    .project-thumb {
+      height: 180px;
+      background: var(--surface2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-body { padding: 1.6rem; }
+    .project-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 0.6rem;
+    }
+    .project-year { font-size: 0.75rem; color: var(--muted); }
+    .project-links { display: flex; gap: 0.75rem; margin-top: 1.2rem; }
+    .project-link {
+      font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--accent2); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.25rem;
+      transition: color var(--transition);
+    }
+    .project-link:hover { color: var(--accent); opacity: 1; }
+    p.project-desc { font-size: 0.88rem; color: var(--muted); }
+ 
+    /* ─── Contact ───────────────────────────────────── */
+    #contact .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem; align-items: start;
+    }
+    .contact-info h3 { margin-bottom: 0.75rem; }
+    .contact-info p { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
+    .contact-channels { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .contact-channels li a {
+      display: flex; align-items: center; gap: 0.75rem;
+      color: var(--muted); text-decoration: none;
+      font-size: 0.88rem; transition: color var(--transition);
+    }
+    .contact-channels li a:hover { color: var(--accent); opacity: 1; }
+    .contact-channels .ch-icon {
+      width: 2rem; height: 2rem; background: var(--surface2);
+      border: 1px solid var(--border); border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; flex-shrink: 0;
+    }
+ 
+    /* ─── Form ──────────────────────────────────────── */
+    form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    label {
+      font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    label .required-mark {
+      color: var(--danger); margin-left: 0.15rem;
+      font-size: 0.85em;
+    }
+    input, textarea, select {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      padding: 0.75rem 1rem;
+      width: 100%;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      appearance: none;
+    }
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(200,255,62,0.12);
+    }
+    input::placeholder, textarea::placeholder { color: var(--muted); }
+    input[aria-invalid="true"], textarea[aria-invalid="true"] {
+      border-color: var(--danger);
+      box-shadow: 0 0 0 3px rgba(255,94,94,0.12);
+    }
+    textarea { resize: vertical; min-height: 140px; }
+    .field-hint { font-size: 0.75rem; color: var(--muted); }
+    .field-error {
+      font-size: 0.75rem; color: var(--danger);
+      display: none;
+    }
+    .field-error[aria-live] { display: block; }
+ 
+    /* checkbox/radio */
+    .checkbox-group { display: flex; align-items: flex-start; gap: 0.75rem; margin-top: 0.25rem; }
+    .checkbox-group input[type="checkbox"] {
+      width: 1.1rem; height: 1.1rem; flex-shrink: 0;
+      margin-top: 0.15rem; cursor: pointer;
+      accent-color: var(--accent);
+    }
+    .checkbox-group label {
+      font-size: 0.82rem; color: var(--muted);
+      text-transform: none; letter-spacing: normal; cursor: pointer;
+    }
+ 
+    /* ─── Footer ────────────────────────────────────── */
+    footer[role="contentinfo"] {
+      border-top: 1px solid var(--border);
+      padding: 3rem 1.5rem;
+    }
+    .footer-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem;
+    }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); }
+    nav[aria-label="Footer navigation"] ul {
+      list-style: none; display: flex; gap: 1.5rem; flex-wrap: wrap;
+    }
+    nav[aria-label="Footer navigation"] a {
+      font-size: 0.78rem; color: var(--muted); text-decoration: none;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      transition: color var(--transition);
+    }
+    nav[aria-label="Footer navigation"] a:hover { color: var(--accent); }
+ 
+    /* ─── Status message ────────────────────────────── */
+    #form-status {
+      padding: 1rem 1.2rem;
+      border-radius: var(--radius);
+      font-size: 0.88rem;
+      display: none;
+    }
+    #form-status.success {
+      background: rgba(200,255,62,0.08);
+      border: 1px solid rgba(200,255,62,0.3);
+      color: var(--accent); display: block;
+    }
+    #form-status.error {
+      background: rgba(255,94,94,0.08);
+      border: 1px solid rgba(255,94,94,0.3);
+      color: var(--danger); display: block;
+    }
+ 
+    /* ─── Responsive ────────────────────────────────── */
+    @media (max-width: 800px) {
+      #about .about-grid,
+      #contact .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      nav[aria-label="Primary navigation"] ul { gap: 0; }
+      nav[aria-label="Primary navigation"] a { padding: 0.35rem 0.6rem; font-size: 0.78rem; }
+    }
+    @media (max-width: 500px) {
+      h1 { letter-spacing: -1px; }
+      .hero-actions { flex-direction: column; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+    }
+ 
+    /* ─── Progress bars for skills ─────────────────── */
+    .skill-bar-wrap { margin-top: 0.75rem; }
+    .skill-bar-label {
+      display: flex; justify-content: space-between;
+      font-size: 0.72rem; color: var(--muted); margin-bottom: 0.35rem;
+    }
+    .skill-bar-track {
+      height: 4px; background: var(--surface2); border-radius: 99px; overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+      border-radius: 99px;
+    }
+ 
+    /* ─── Divider line ──────────────────────────────── */
+    hr { border: none; border-top: 1px solid var(--border); margin: 0; }
+  </style>
+</head>
+ 
+<body>
+  <!-- Skip Navigation (WCAG 2.4.1) -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+ 
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!-- ║  HEADER                              ║ -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <header role="banner">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#home" aria-label="Jadu Nandini — home">
+        Jadu<span>.</span>Nandini
+      </a>
+ 
+      <nav aria-label="Primary navigation">
+        <ul role="list">
+          <li><a href="#home"     aria_current="page">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+ 
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!-- ║  MAIN                                ║ -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <main id="main-content" tabindex="-1">
+ 
+    <!-- ── HERO ──────────────────────────────── -->
+    <section id="home" aria-labelledby="hero-heading">
+      <div class="container">
+        <p class="hero-eyebrow" aria-hidden="true">Available for work</p>
+        <h1 id="hero-heading">
+          Jadu<br /><em>Nandini</em><br />Protfolio
+        </h1>
+        <p class="hero-desc">
+          B.Tech CSE (AI & ML) Student passionate about Artificial Intelligence,
+          Machine Learning, NLP, and Software Development.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary" aria-label="View my projects">
+            View Projects
+          </a>
+          <a href="#contact" class="btn btn-outline" aria-label="Get in touch with me">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </section>
+ 
+    <hr />
+ 
+    <!-- ── ABOUT ──────────────────────────────── -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <p class="section-label" aria-hidden="true">01 / About</p>
+        <div class="about-grid">
+          <!-- Avatar placeholder -->
+          <div
+            class="about-avatar"
+            role="img"
+            aria-label="Portrait illustration of Nandini Rivera"
+          >
+            JN
+          </div>
+ 
+          <div class="about-content">
+            <h2 id="about-heading">Who I am</h2>
+            <p class="section-intro">
+              I am a B.Tech CSE (AI & ML) student at Malla Reddy Engineering College for Women with a CGPA of 8.73. I am passionate about Artificial Intelligence, Machine Learning, and Software Development
+            </p>
+            <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;">
+              I enjoy learning new technologies, building projects, participating in technical events, and improving my programming and problem-solving skills.
+            </p>
+ 
+            <div class="about-stats" role="list" aria-label="Career statistics">
+              <div class="stat-card" role="listitem">
+                <div class="stat-number" aria-label="8.73CGPA">8.73</div>
+                <div class="stat-label">Current CGPA</div>
+              </div>
+              <div class="stat-card" role="listitem">
+                <div class="stat-number" aria-label="2 major Projects">2+</div>
+                <div class="stat-label">Major Projects</div>
+              </div>
+              <div class="stat-card" role="listitem">
+                <div class="stat-number" aria-label="4 certifications">4+</div>
+                <div class="stat-label">Certifications</div>
+              </div>
+              <div class="stat-card" role="listitem">
+                <div class="stat-number" aria-label="5 workshops">5+</div>
+                <div class="stat-label">Workshops</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <hr />
+ 
+    <!-- ── SKILLS ─────────────────────────────── -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <p class="section-label" aria-hidden="true">02 / Skills</p>
+        <h2 id="skills-heading">What I work with</h2>
+        <p class="section-intro">
+          A toolkit built over years of shipping real products — from design systems
+          to distributed back-ends.
+        </p>
+ 
+        <div class="skills-grid">
+          <!-- Card 1 -->
+          <article class="skill-card" aria-labelledby="skill-fe-heading">
+            <div class="skill-icon" aria-hidden="true">⚡</div>
+            <h3 id="skill-fe-heading">Programming</h3>
+            <p class="skill-desc">
+              Building accessible, performant UIs with modern frameworks and
+              a strong eye for interaction design.
+            </p>
+            <div class="skill-tags" role="list" aria-label="Programming languages and frameworks">
+              <span class="tag" role="listitem">Python</span>
+              <span class="tag" role="listitem">Java</span>
+              <span class="tag" role="listitem">C++</span>
+              <span class="tag" role="listitem">SQL</span>
+              <span class="tag" role="listitem">Node.js</span>
+            </div>
+            <div class="skill-bar-wrap">
+              <div class="skill-bar-label">
+                <span>Proficiency</span><span>92%</span>
+              </div>
+              <div
+                class="skill-bar-track"
+                role="progressbar"
+                aria-valuenow="92"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-label="Frontend proficiency 92%"
+              >
+                <div class="skill-bar-fill" style="width:92%"></div>
+              </div>
+            </div>
+          </article>
+ 
+          <!-- Card 2 -->
+          <article class="skill-card" aria-labelledby="skill-be-heading">
+            <div class="skill-icon" aria-hidden="true">🛠</div>
+            <h3 id="skill-be-heading">Backend</h3>
+            <p class="skill-desc">
+              Designing robust APIs, microservices, and database architectures
+              that scale under pressure.
+            </p>
+            <div class="skill-tags" role="list" aria-label="Backend technologies">
+              <span class="tag" role="listitem">Machine Learning</span>
+              <span class="tag" role="listitem">NLP</span>
+              <span class="tag" role="listitem">Deep Learning</span>
+              <span class="tag" role="listitem">TensorFlow</span>
+              <span class="tag" role="listitem">Generative AI</span>
+            </div>
+            <div class="skill-bar-wrap">
+              <div class="skill-bar-label">
+                <span>Proficiency</span><span>85%</span>
+              </div>
+              <div
+                class="skill-bar-track"
+                role="progressbar"
+                aria-valuenow="85"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-label="Backend proficiency 85%"
+              >
+                <div class="skill-bar-fill" style="width:85%"></div>
+              </div>
+            </div>
+          </article>
+ 
+          <!-- Card 3 -->
+          <article class="skill-card" aria-labelledby="skill-ux-heading">
+            <div class="skill-icon" aria-hidden="true">✦</div>
+            <h3 id="skill-ux-heading">Development Tools</h3>
+            <p class="skill-desc">
+              Building accessible, performant UIs with modern frameworks and
+              a strong eye for interaction design.
+            </p>
+            <div class="skill-tags" role="list" aria-label="Development tools">
+              <span class="tag" role="listitem">GitHub</span>
+              <span class="tag" role="listitem">VS Code</span>
+              <span class="tag" role="listitem">FastAPI</span>
+              <span class="tag" role="listitem">Streamlit</span>
+              <span class="tag" role="listitem">Canva</span>
+            </div>
+            <div class="skill-bar-wrap">
+              <div class="skill-bar-label">
+                <span>Proficiency</span><span>88%</span>
+              </div>
+              <div
+                class="skill-bar-track"
+                role="progressbar"
+                aria-valuenow="88"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-label="Design proficiency 88%"
+              >
+                <div class="skill-bar-fill" style="width:88%"></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+ 
+    <hr />
+ 
+    <!-- ── PROJECTS ───────────────────────────── -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <p class="section-label" aria-hidden="true">03 / Projects</p>
+        <h2 id="projects-heading">Selected work</h2>
+        <p class="section-intro">
+          A curated set of projects spanning product design, engineering, and
+          creative development.
+        </p>
+ 
+        <div class="projects-grid">
+ 
+          <article class="project-card" aria-labelledby="proj1-title">
+            <div class="project-thumb" role="img" aria-label="Screenshot of Pulse Analytics dashboard">
+              📊
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="tag">SaaS</span>
+                <span class="project-year">2024</span>
+              </div>
+              <h3 id="proj1-title">Pulse Analytics</h3>
+              <p class="project-desc">
+                Real-time data dashboard for e-commerce teams. Reduced time-to-insight
+                by 60% with a redesigned information architecture.
+              </p>
+              <div class="project-links">
+                <a href="#" class="project-link" aria-label="View Pulse Analytics live demo">
+                  Live Demo ↗
+                </a>
+                <a href="#" class="project-link" aria-label="View Pulse Analytics GitHub source">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+ 
+          <article class="project-card" aria-labelledby="proj2-title">
+            <div class="project-thumb" role="img" aria-label="Screenshot of Meridian design system">
+              🎨
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="tag">Design System</span>
+                <span class="project-year">2024</span>
+              </div>
+              <h3 id="proj2-title">Meridian UI</h3>
+              <p class="project-desc">
+                Open-source accessible component library used by 300+ projects.
+                Built with React, TypeScript, and ARIA-first semantics.
+              </p>
+              <div class="project-links">
+                <a href="#" class="project-link" aria-label="View Meridian UI documentation">
+                  Docs ↗
+                </a>
+                <a href="#" class="project-link" aria-label="View Meridian UI GitHub source">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+ 
+          <article class="project-card" aria-labelledby="proj3-title">
+            <div class="project-thumb" role="img" aria-label="Screenshot of Canopy mobile app">
+              🌿
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="tag">Mobile</span>
+                <span class="project-year">2023</span>
+              </div>
+              <h3 id="proj3-title">Canopy</h3>
+              <p class="project-desc">
+                Habit-tracking app for mindful productivity. 4.9-star rating with
+                50 k+ monthly active users.
+              </p>
+              <div class="project-links">
+                <a href="#" class="project-link" aria-label="View Canopy on App Store">
+                  App Store ↗
+                </a>
+                <a href="#" class="project-link" aria-label="View Canopy case study">
+                  Case Study ↗
+                </a>
+              </div>
+            </div>
+          </article>
+ 
+        </div>
+      </div>
+    </section>
+ 
+    <hr />
+ 
+    <!-- ── CONTACT ────────────────────────────── -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <p class="section-label" aria-hidden="true">04 / Contact</p>
+        <h2 id="contact-heading">Let's work together</h2>
+ 
+        <div class="contact-grid">
+          <!-- Left: info -->
+          <aside aria-label="Contact information">
+            <h3>Get in touch</h3>
+            <p>
+               I am a B.Tech CSE (AI & ML) student interested in internships,
+  project collaborations, and opportunities to enhance my technical skills.
+            </p>
+            <ul class="contact-channels" role="list">
+              <li>
+                <a href="mailto:hello@Jadu Nandini.dev" aria-label="Send email to hello@Jadu Nandini.dev">
+                  <span class="ch-icon" aria-hidden="true">✉</span>
+                  hello@Jadu Nandini.dev
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/Jadu Nandini" target="_blank" rel="noopener noreferrer"
+                   aria-label="Visit Jadu Nandini LinkedIn profile (opens in new tab)">
+                  <span class="ch-icon" aria-hidden="true">in</span>
+                  linkedin.com/in/Jadu Nandini
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/Nandini" target="_blank" rel="noopener noreferrer"
+                   aria-label="Visit Jadu Nandini GitHub profile (opens in new tab)">
+                  <span class="ch-icon" aria-hidden="true">⌥</span>
+                  github.com/Jadu Nandini
+                </a>
+              </li>
+            </ul>
+          </aside>
+ 
+          <!-- Right: form -->
+          <div>
+            <!-- Live region for form feedback -->
+            <div
+              id="form-status"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            ></div>
+ 
+            <form
+              id="contact-form"
+              novalidate
+              aria-label="Contact form"
+              aria-describedby="form-desc"
+            >
+              <p id="form-desc" class="field-hint">
+                Fields marked with
+                <abbr title="required" aria-hidden="true">*</abbr>
+                are required.
+              </p>
+ 
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="field-name">
+                    Name <span class="required-mark" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="field-name"
+                    name="name"
+                    autocomplete="name"
+                    required
+                    aria-required="true"
+                    aria-describedby="name-error"
+                    placeholder="Jane Doe"
+                  />
+                  <span
+                    id="name-error"
+                    class="field-error"
+                    role="alert"
+                    aria-live="assertive"
+                  ></span>
+                </div>
+ 
+                <div class="form-group">
+                  <label for="field-email">
+                    Email <span class="required-mark" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="field-email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                    aria-required="true"
+                    aria-describedby="email-error"
+                    placeholder="jane@example.com"
+                  />
+                  <span
+                    id="email-error"
+                    class="field-error"
+                    role="alert"
+                    aria-live="assertive"
+                  ></span>
+                </div>
+              </div>
+ 
+              <div class="form-group">
+                <label for="field-subject">Subject</label>
+                <select id="field-subject" name="subject" aria-describedby="subject-hint">
+                  <option value="" disabled selected>Select an inquiry type…</option>
+                  <option value="freelance">Freelance project</option>
+                  <option value="fulltime">Full-time opportunity</option>
+                  <option value="collab">Collaboration</option>
+                  <option value="other">Other</option>
+                </select>
+                <span id="subject-hint" class="field-hint">Optional — helps me reply faster.</span>
+              </div>
+ 
+              <div class="form-group">
+                <label for="field-message">
+                  Message <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <textarea
+                  id="field-message"
+                  name="message"
+                  required
+                  aria-required="true"
+                  aria-describedby="message-error message-hint"
+                  placeholder="Tell me about your project or idea…"
+                  rows="5"
+                ></textarea>
+                <span id="message-hint" class="field-hint">Minimum 20 characters.</span>
+                <span
+                  id="message-error"
+                  class="field-error"
+                  role="alert"
+                  aria-live="assertive"
+                ></span>
+              </div>
+ 
+              <div class="checkbox-group">
+                <input
+                  type="checkbox"
+                  id="field-consent"
+                  name="consent"
+                  required
+                  aria-required="true"
+                  aria-describedby="consent-error"
+                />
+                <label for="field-consent">
+                  I agree to the
+                  <a href="#" aria-label="Read the privacy policy">privacy policy</a>
+                  and consent to being contacted.
+                  <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+              </div>
+              <span
+                id="consent-error"
+                class="field-error"
+                role="alert"
+                aria-live="assertive"
+              ></span>
+ 
+              <button
+                type="submit"
+                class="btn btn-primary"
+                aria-label="Submit the contact form"
+                id="submit-btn"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+  </main>
+ 
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!-- ║  FOOTER                              ║ -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <p class="footer-copy">
+        <span aria-hidden="true">©</span>
+        <span>
+          <span class="sr-only">Copyright </span>2025 Jadu Nandini.
+          Built with semantic HTML5 &amp; care.
+        </span>
+      </p>
+ 
+      <nav aria-label="Footer navigation">
+        <ul role="list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+ 
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!-- ║  SCRIPTS                             ║ -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <script>
+    /* ─── Accessible form validation ──────────────────── */
+    const form     = document.getElementById('contact-form');
+    const status   = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+ 
+    function setError(inputId, errorId, msg) {
+      const input = document.getElementById(inputId);
+      const err   = document.getElementById(errorId);
+      input.setAttribute('aria-invalid', 'true');
+      err.textContent = msg;
+      err.setAttribute('aria-live', 'assertive');
+    }
+    function clearError(inputId, errorId) {
+      const input = document.getElementById(inputId);
+      const err   = document.getElementById(errorId);
+      input.removeAttribute('aria-invalid');
+      err.textContent = '';
+      err.removeAttribute('aria-live');
+    }
+ 
+    /* Live inline validation on blur */
+    document.getElementById('field-name').addEventListener('blur', function () {
+      this.value.trim()
+        ? clearError('field-name', 'name-error')
+        : setError('field-name', 'name-error', 'Please enter your name.');
+    });
+    document.getElementById('field-email').addEventListener('blur', function () {
+      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value.trim());
+      valid
+        ? clearError('field-email', 'email-error')
+        : setError('field-email', 'email-error', 'Please enter a valid email address.');
+    });
+    document.getElementById('field-message').addEventListener('blur', function () {
+      this.value.trim().length >= 20
+        ? clearError('field-message', 'message-error')
+        : setError('field-message', 'message-error', 'Message must be at least 20 characters.');
+    });
+ 
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      let valid = true;
+ 
+      const name    = document.getElementById('field-name').value.trim();
+      const email   = document.getElementById('field-email').value.trim();
+      const message = document.getElementById('field-message').value.trim();
+      const consent = document.getElementById('field-consent').checked;
+ 
+      if (!name)   { setError('field-name', 'name-error', 'Please enter your name.'); valid = false; }
+      else           clearError('field-name', 'name-error');
+ 
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        setError('field-email', 'email-error', 'Please enter a valid email address.'); valid = false;
+      } else clearError('field-email', 'email-error');
+ 
+      if (message.length < 20) {
+        setError('field-message', 'message-error', 'Message must be at least 20 characters.'); valid = false;
+      } else clearError('field-message', 'message-error');
+ 
+      const consentErr = document.getElementById('consent-error');
+      if (!consent) {
+        consentErr.textContent = 'You must agree to the privacy policy to continue.';
+        consentErr.setAttribute('aria-live', 'assertive');
+        valid = false;
+      } else {
+        consentErr.textContent = '';
+        consentErr.removeAttribute('aria-live');
+      }
+ 
+      if (!valid) {
+        /* Move focus to first invalid field */
+        const firstInvalid = form.querySelector('[aria-invalid="true"]');
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+ 
+      /* Simulate submission */
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      setTimeout(() => {
+        status.className = 'success';
+        status.textContent = '✓ Message sent! I'll get back to you within 24 hours.';
+        status.focus();
+        form.reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }, 1200);
+    });
+ 
+    /* ─── Active nav link on scroll ───────────────────── */
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('nav[aria-label="Primary navigation"] a');
+ 
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.removeAttribute('aria-current'));
+          const active = document.querySelector(
+            `nav[aria-label="Primary navigation"] a[href="#${entry.target.id}"]`
+          );
+          if (active) active.setAttribute('aria-current', 'page');
+        }
+      });
+    }, { threshold: 0.4 });
+ 
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>
